@@ -4,16 +4,16 @@ import './index.css'
 import App from './App.jsx'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './contexts/AuthContext.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <Router>
+  <BrowserRouter>
   <AuthProvider>
     <App />
     <Toaster/>
     </AuthProvider>
-  </Router>
+  </BrowserRouter>
   </StrictMode>,
 )

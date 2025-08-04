@@ -7,14 +7,19 @@ const variationSchema = new mongoose.Schema({
   },
   options: [
     {
+      _id: { 
+        type: mongoose.Schema.Types.ObjectId,
+        default: () => new mongoose.Types.ObjectId(),
+        auto: true 
+      },
       name: {
         type: String, // e.g., '1 month', '2 months', '3 months'
         required: true,
-    },
-    description: {
-      type: String, // Description of the option
-      required: true,
-    },
+      },
+      description: {
+        type: String, // Description of the option
+        required: true,
+      },
       price: {
         type: Number, // Price for this option
         required: true,

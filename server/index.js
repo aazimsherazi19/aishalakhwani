@@ -7,6 +7,7 @@ const authRouter = require('./routes/authRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const variationRoutes = require('./routes/variationRoutes'); // Import variation routes
 const packageRoutes = require('./routes/packageRoutes'); // Import package routes
+const orderRoutes = require('./routes/orderRoutes'); // Import order routes
 const cors = require('cors');
 const fs = require('fs');
 const mongoose = require('mongoose');
@@ -31,6 +32,7 @@ app.use('/api/auth', authRouter);
 app.use('/api', blogRoutes);
 app.use('/api', variationRoutes); // Use variation routes
 app.use('/api', packageRoutes); // Use package routes
+app.use('/api', orderRoutes); // Use order routes
 // Global error handler
 app.use((err, req, res, next) => {
   err.statusCode = err.statusCode || 500;

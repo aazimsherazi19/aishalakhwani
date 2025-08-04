@@ -20,6 +20,9 @@ import AddPackages from "./admin/pages/AddPackages"
 import ViewPackages from "./admin/pages/ViewPackages"
 import UpdatePackages from "./admin/pages/UpdatePackages"
 import PackageShow from "./components/PackageShow"
+import Orders from "./admin/pages/Orders"
+import UpdateOrder from "./admin/pages/UpdateOrder"
+
 function App() {
   const { isAuthenticated } = useAuth();
   return (
@@ -48,7 +51,8 @@ function App() {
     <Route path="/addpackages" element={isAuthenticated ? <AddPackages /> : <Navigate to="/login"/>} />
     <Route path="/viewpackages" element={isAuthenticated ? <ViewPackages /> : <Navigate to="/login"/>} />
     <Route path="/updatepackages/:id" element={isAuthenticated ? <UpdatePackages/> : <Navigate to="/login"/>} />
-
+    <Route path="/orders" element={isAuthenticated ? <Orders /> : <Navigate to="/login"/>} />
+    <Route path="/updateorder/:id" element={isAuthenticated ? <UpdateOrder/> : <Navigate to="/login"/>} />
     {/* Redirect any unmatched routes to home */}
     </Routes>
     </>
