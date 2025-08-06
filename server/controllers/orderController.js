@@ -4,59 +4,136 @@ const Variation = require('../models/variatonModel');
 
 // ...existing code...
 
+// const createOrder = async (req, res) => {
+//   const { customer, packages } = req.body;
+
+//   try {
+//     let totalAmount = 0;
+//     const packageDetails = [];
+
+//     for (const package of packages) {
+//       const { packageId, variationId, variationOptionId } = package;
+
+//       const pkg = await Package.findById(packageId).populate('variation');
+//       let price = pkg.price;
+
+//       if (pkg.variation && variationId) {
+//         const variation = await Variation.findById(variationId);
+//         const selectedOption = variation.options.find(
+//           option => option._id.toString() === variationOptionId
+//         );
+
+//         if (selectedOption) {
+//           price = selectedOption.price;
+//           packageDetails.push({
+//             package: pkg._id,
+//             variation: variation._id,
+//             selectedOption: {
+//               _id: selectedOption._id,
+//               name: selectedOption.name,
+//               price: selectedOption.price
+//             },
+//             price: selectedOption.price
+//           });
+//         }
+//       } else {
+//         packageDetails.push({
+//           package: pkg._id,
+//           variation: null,
+//           selectedOption: null,
+//           price
+//         });
+//       }
+
+//       totalAmount += price;
+//     }
+
+//     const order = new Order({
+//       customer,
+//       packages: packageDetails,
+//       totalAmount
+//     });
+
+//     await order.save();
+//     res.status(201).json(order);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// };
+
 const createOrder = async (req, res) => {
-  const { customer, packages } = req.body;
-
   try {
-    let totalAmount = 0;
-    const packageDetails = [];
+    const { customer, packages } = req.body;
 
-    for (const package of packages) {
-      const { packageId, variationId, variationOptionId } = package;
-
-      const pkg = await Package.findById(packageId).populate('variation');
-      let price = pkg.price;
-
-      if (pkg.variation && variationId) {
-        const variation = await Variation.findById(variationId);
-        const selectedOption = variation.options.find(
-          option => option._id.toString() === variationOptionId
-        );
-
-        if (selectedOption) {
-          price = selectedOption.price;
-          packageDetails.push({
-            package: pkg._id,
-            variation: variation._id,
-            selectedOption: {
-              _id: selectedOption._id,
-              name: selectedOption.name,
-              price: selectedOption.price
-            },
-            price: selectedOption.price
-          });
-        }
-      } else {
-        packageDetails.push({
-          package: pkg._id,
-          variation: null,
-          selectedOption: null,
-          price
-        });
-      }
-
-      totalAmount += price;
+    if (!customer || !packages || !Array.isArray(packages)) {
+      return res.status(400).json({ error: 'Invalid request data' });
     }
 
+    // Validate and transform packages
+    const packageDetails = await Promise.all(packages.map(async (pkg) => {
+      // Validate package exists
+      const packageDoc = await Package.findById(pkg.package);
+      if (!packageDoc) {
+        throw new Error(`Package not found: ${pkg.package}`);
+      }
+
+      // Base package data
+      const packageData = {
+        package: packageDoc._id,
+        price: Number(pkg.price)
+      };
+
+      // Add variation if exists
+      if (pkg.variation) {
+        const variation = await Variation.findById(pkg.variation);
+        if (!variation) {
+          throw new Error(`Variation not found: ${pkg.variation}`);
+        }
+        packageData.variation = variation._id;
+
+        // Add selected option if exists
+        if (pkg.selectedOption) {
+          const option = variation.options.find(
+            opt => opt._id.toString() === pkg.selectedOption.optionId
+          );
+          if (!option) {
+            throw new Error('Selected option not found in variation');
+          }
+
+          packageData.selectedOption = {
+            optionId: option._id,
+            name: option.name,
+            price: Number(option.price)
+          };
+          packageData.price = Number(option.price);
+        }
+      }
+
+      return packageData;
+    }));
+
+    // Calculate total
+    const totalAmount = packageDetails.reduce((sum, pkg) => sum + pkg.price, 0);
+
+    // Create order
     const order = new Order({
       customer,
       packages: packageDetails,
-      totalAmount
+      totalAmount,
+      status: 'pending'
     });
 
-    await order.save();
-    res.status(201).json(order);
+    const savedOrder = await order.save();
+    
+    // Return populated order
+    const populatedOrder = await Order.findById(savedOrder._id)
+      .populate('packages.package')
+      .populate('packages.variation');
+
+    res.status(201).json(populatedOrder);
+
   } catch (error) {
+    console.error('Order creation error:', error);
     res.status(500).json({ error: error.message });
   }
 };

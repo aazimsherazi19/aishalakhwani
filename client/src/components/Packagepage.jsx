@@ -10,7 +10,7 @@ const PkgCard = ({ pkg }) => {
     <div className=" bg-white rounded-lg shadow-lg overflow-hidden group transform hover:scale-105 transition duration-300 ease-in-out ">
       <img
         className="w-full h-56 object-cover group-hover:opacity-80 transition-opacity duration-300"
-        src={`http://localhost:3000/uploads/${pkg.image}`} // Image path assuming it's in uploads folder
+        src={`${import.meta.env.VITE_BACKEND_API}uploads/${pkg.image}`} // Image path assuming it's in uploads folder
         alt={pkg.name}
       />
       <div className="p-6 space-y-4">
@@ -37,7 +37,7 @@ const Packagepage = () => {
     // Fetch package data from the API
     const fetchPackages = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/getpackages/');
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_API}api/getpackages`);
         const data = await response.json();
         setPackages(data); // Store fetched packages in the state
       } catch (error) {

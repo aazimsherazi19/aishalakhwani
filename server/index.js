@@ -8,6 +8,9 @@ const blogRoutes = require('./routes/blogRoutes');
 const variationRoutes = require('./routes/variationRoutes'); // Import variation routes
 const packageRoutes = require('./routes/packageRoutes'); // Import package routes
 const orderRoutes = require('./routes/orderRoutes'); // Import order routes
+const buyRoutes = require('./routes/buyRoutes'); // Import order routes
+
+
 const cors = require('cors');
 const fs = require('fs');
 const mongoose = require('mongoose');
@@ -33,6 +36,7 @@ app.use('/api', blogRoutes);
 app.use('/api', variationRoutes); // Use variation routes
 app.use('/api', packageRoutes); // Use package routes
 app.use('/api', orderRoutes); // Use order routes
+app.use('/api', buyRoutes); // Use buy routes
 // Global error handler
 app.use((err, req, res, next) => {
   err.statusCode = err.statusCode || 500;

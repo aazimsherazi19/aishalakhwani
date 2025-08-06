@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import logox from '../../assets/logox.png'
+import logo2 from '../../assets/logo2.webp'
 import { IoMdSearch,IoMdMenu  } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
 import { MdOutlineDarkMode } from "react-icons/md";
@@ -37,7 +37,7 @@ const Navbar = () => {
       animate={{ opacity: 1 }} // Animate to opacity 1 (visible)
       transition={{ duration: 1 }} // Animation duration is 1 second
             >
-                <a href="#home"><img src={logox} alt="Logo"  className='w-32 hover:scale-105 transition-all'/></a>
+                <a href="#home"><img src={logo2} alt="Logo"  className='w-32 sm:w-36  hover:scale-105 transition-all'/></a>
             </motion.div>
           <div className={`xl:hidden lg:hidden md:hidden absolute flex flex-col items-center bg-white w-full 
           gap-6 top-12 right-0 transition-transform transform dark:bg-gray-900 ${isOpen ? "opacity-100, animate-slide-in-left" : "opacity-0" } `}>

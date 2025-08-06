@@ -10,7 +10,7 @@ const CompleteBlog = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/getblog/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_API}api/getblog/${id}`);
         const data = await response.json();
         setBlog(data);
       } catch (error) {
@@ -31,7 +31,7 @@ const CompleteBlog = () => {
           <div className="lg:col-span-2">
             <img
               className="w-full h-[150px] md:h-[400px] sm:h-[250px] rounded-md"
-              src={`http://localhost:3000/uploads/${blog.image}`}
+              src={`${import.meta.env.VITE_BACKEND_API}uploads/${blog.image}`}
               alt={blog.heading}
             />
             <h1 className="text-xl sm:text-3xl font-bold text-gray-900 mt-6 mb-4">{blog.heading}</h1>

@@ -22,7 +22,7 @@ import UpdatePackages from "./admin/pages/UpdatePackages"
 import PackageShow from "./components/PackageShow"
 import Orders from "./admin/pages/Orders"
 import UpdateOrder from "./admin/pages/UpdateOrder"
-
+import Checkout from "./components/CheckOut"
 function App() {
   const { isAuthenticated } = useAuth();
   return (
@@ -32,7 +32,7 @@ function App() {
     <Route path="/about" element={<About/>}/>
     <Route path="/packages" element={<Packagepage/>}/>
     <Route path="/packageshow/:id" element={<PackageShow/>}/>
-
+    <Route path="/checkout/:id" element={<Checkout/>}/>
     <Route path="/services" element={<Services/>}/>
     <Route path="/blogs" element={<Blogs/>}/>
     <Route path="/blog/:id" element={<CompleteBlog />} />
