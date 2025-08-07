@@ -2,27 +2,33 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Oliver from "../assets/review1.jpg";
+import Amelia from "../assets/review2.jpg";
+import Charlotte from "../assets/review3.jpg";
+import James from "../assets/review4.jpg";
+
+
 
 const testimonials = [
   {
     name: "Oliver Bennett",
     comment: "The veggies were so fresh and packed beautifully. Love it!",
-    img: "src/assets/review1.jpg",
+    img: Oliver,
   },
   {
     name: "Amelia Brooks",
     comment: "Quick delivery & top-notch quality. Highly recommend!",
-    img: "src/assets/review2.jpg",
+    img: Amelia,
   },
   {
     name: "Charlotte Harris",
     comment: "Finally, a brand I can trust for real organic produce.",
-    img: "src/assets/review3.jpg",
+    img: Charlotte,
   },
   {
     name: "James Walker",
     comment: "Organic, fresh, and affordable. My family loves it!",
-    img: "src/assets/review4.jpg",
+    img: James,
   },
 ];
 
