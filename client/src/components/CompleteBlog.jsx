@@ -10,6 +10,7 @@ const CompleteBlog = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
+        await new Promise((resolve) => setTimeout(resolve, 2000)); // check karne k liye ha delay hatega bad me
         const response = await fetch(`${import.meta.env.VITE_BACKEND_API}api/getblog/${id}`);
         const data = await response.json();
         setBlog(data);
@@ -20,7 +21,11 @@ const CompleteBlog = () => {
     fetchBlog();
   }, [id]);
 
-  if (!blog) return <div className="text-center py-10">Loading...</div>;
+  if (!blog) return (
+      <div className="flex justify-center items-center py-20">
+            <div className="w-12 h-12 border-4 border-primary border-dashed rounded-full animate-spin"></div>
+          </div>
+  )
 
   return (
     <>

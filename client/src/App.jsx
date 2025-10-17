@@ -29,6 +29,8 @@ import UpdateCustomer from "./admin/pages/UpdateCustomer"
 import PayNow from "./components/PayNow"
 import Terms from "./components/Terms"
 import TestimonialMain from "./components/TestimonialMain"
+import AddTestimonial from "./admin/pages/AddTestimonial"
+import ViewTestimonials from "./admin/pages/viewTestimonials"
 function App() {
   const { isAuthenticated } = useAuth();
   return (
@@ -61,6 +63,8 @@ function App() {
     <Route path="/addpackages" element={isAuthenticated ? <AddPackages /> : <Navigate to="/login"/>} />
     <Route path="/viewpackages" element={isAuthenticated ? <ViewPackages /> : <Navigate to="/login"/>} />
     <Route path="/updatepackages/:id" element={isAuthenticated ? <UpdatePackages/> : <Navigate to="/login"/>} />
+    <Route path="/addtestimonial" element={isAuthenticated ? <AddTestimonial /> : <Navigate to="/login"/>} />
+    <Route path="/viewtestimonials" element={isAuthenticated ? <ViewTestimonials /> : <Navigate to="/login"/>} />
     {/* <Route path="/orders" element={isAuthenticated ? <Orders /> : <Navigate to="/login"/>} /> */}
     <Route path="/patients" element={isAuthenticated ? <CustomerDetails /> : <Navigate to="/login"/>} />
     <Route path="/updatecustomer/:id" element={isAuthenticated ? <UpdateCustomer/> : <Navigate to="/login"/>} />

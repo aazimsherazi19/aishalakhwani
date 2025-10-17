@@ -44,6 +44,18 @@ import {
 	  href: "/viewvariations",
 	},
 	{
+    name: "Add Testimonial",
+    icon: ArrowLeftRight,
+    color: "#10B981",
+    href: "/addtestimonial",
+  },
+  {
+    name: "View Testimonial",
+    icon: BookOpenCheck,
+    color: "#F59E0B",
+    href: "/viewtestimonials",
+  },
+	{
 	  name: "Your Orders",
 	  icon: MessageSquare,
 	  color: "#6EE7B7",
