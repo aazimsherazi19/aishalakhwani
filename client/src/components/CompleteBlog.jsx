@@ -10,7 +10,6 @@ const CompleteBlog = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        await new Promise((resolve) => setTimeout(resolve, 2000)); // check karne k liye ha delay hatega bad me
         const response = await fetch(`${import.meta.env.VITE_BACKEND_API}api/getblog/${id}`);
         const data = await response.json();
         setBlog(data);

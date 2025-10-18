@@ -64,19 +64,19 @@ At Dr Aisha Lakhwani, we believe that everyone deserves to experience the touch,
             {/* Team Member 1 */}
             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 animate-slide-in-up">
               <BsFillPeopleFill  className="mx-auto *:text-ternary mb-8" size={45}/>
-              <h3 className="text-2xl font-semibold text-center mb-2">DR Aisha Lakhwani</h3>
+              <h3 className="text-2xl font-semibold text-center mb-2">Dr Aisha Lakhwani</h3>
               <p className="text-center text-lg text-ternary">CEO & FOUNDER</p>
             </div>
             {/* Team Member 2 */}
             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 animate-slide-in-up">
              <BsFillPeopleFill  className="mx-auto *:text-ternary mb-8" size={45}/> 
-              <h3 className="text-2xl font-semibold text-center mb-2">MR Talal</h3>
-              <p className="text-center text-lg text-ternary">Graphic DESIGNER & VIDEO EDITOR</p>
+              <h3 className="text-2xl font-semibold text-center mb-2">Mr Talal</h3>
+              <p className="text-center text-lg text-ternary">GRAPHIC DESIGNER & VIDEO EDITOR</p>
             </div>
             {/* Team Member 3 */}
             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 animate-slide-in-up">
               <BsFillPeopleFill  className="mx-auto *:text-ternary mb-8" size={45}/>
-              <h3 className="text-2xl font-semibold text-center mb-2">MS Areeba</h3>
+              <h3 className="text-2xl font-semibold text-center mb-2">Ms Areeba</h3>
               <p className="text-center text-lg text-ternary">MARKETING MANAGER</p>
             </div>
           </div>
@@ -87,19 +87,19 @@ At Dr Aisha Lakhwani, we believe that everyone deserves to experience the touch,
             {/* Team Member 1 */}
             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 animate-slide-in-up">
               <BsFillPeopleFill  className="mx-auto *:text-ternary mb-8" size={45}/>
-              <h3 className="text-2xl font-semibold text-center mb-2">MS Hina</h3>
+              <h3 className="text-2xl font-semibold text-center mb-2">Ms Hina</h3>
               <p className="text-center text-lg text-ternary">SENIOR SALES REPRESENTATIVE</p>
             </div>
             {/* Team Member 2 */}
             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 animate-slide-in-up">
               <BsFillPeopleFill  className="mx-auto *:text-ternary mb-8" size={45}/>
-              <h3 className="text-2xl font-semibold text-center mb-2">MS Saima</h3>
+              <h3 className="text-2xl font-semibold text-center mb-2">Ariba Ahmed</h3>
               <p className="text-center text-lg text-ternary">SALES REPRESENTATIVE</p>
             </div>
             {/* Team Member 3 */}
             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 animate-slide-in-up">
               <BsFillPeopleFill  className="mx-auto *:text-ternary mb-8" size={45}/>
-              <h3 className="text-2xl font-semibold text-center mb-2">MS Anny</h3>
+              <h3 className="text-2xl font-semibold text-center mb-2">Ms Anny</h3>
               <p className="text-center text-lg text-ternary">ASSISTANT</p>
             </div>
           </div>

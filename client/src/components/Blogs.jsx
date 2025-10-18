@@ -44,7 +44,6 @@ const Blogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        await new Promise((resolve) => setTimeout(resolve, 2000));
         const response = await fetch(`${import.meta.env.VITE_BACKEND_API}api/getblog/`)
         const data = await response.json()
         setBlogs(data)

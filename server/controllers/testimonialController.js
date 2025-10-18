@@ -1,6 +1,6 @@
 const Testimonial = require("../models/testimonial");
 
-// ✅ Add new testimonial
+// Add new testimonial
 exports.addTestimonial = async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: "Image file is required" });
@@ -17,7 +17,7 @@ exports.addTestimonial = async (req, res) => {
   }
 };
 
-// ✅ Get testimonials (with category, limit & shuffle)
+//  Get testimonials (with category, limit & shuffle)
 exports.getTestimonials = async (req, res) => {
   try {
     const { category } = req.query;
@@ -38,7 +38,7 @@ exports.getTestimonials = async (req, res) => {
   }
 };
 
-// ✅ Delete testimonial
+//  Delete testimonial
 exports.deleteTestimonial = async (req, res) => {
   try {
     const testimonial = await Testimonial.findByIdAndDelete(req.params.id);
