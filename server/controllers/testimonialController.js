@@ -21,7 +21,7 @@ exports.addTestimonial = async (req, res) => {
 exports.getTestimonials = async (req, res) => {
   try {
     const { category } = req.query;
-    const limit = parseInt(req.query.limit) || 6;
+    const limit = parseInt(req.query.limit) || 15;
 
     const query = category ? { category } : {};
     let data = await Testimonial.find(query);

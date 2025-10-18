@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const TestimonialSlider = ({ category = "Low AMH", limit = 6 }) => {
+const TestimonialSlider = ({ category = "Low AMH", limit = 15 }) => {
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
   const [refresh, setRefresh] = useState(false);
