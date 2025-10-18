@@ -99,11 +99,12 @@ const Navbar = () => {
         className={`hidden md:flex justify-center items-center animate-fade-in bg-white dark:bg-gray-900 py-2 transition-all duration-300
         ${isSticky ? "fixed top-0 left-0 w-full z-50 shadow-md" : "relative"}`}
       >
-        <ul className='hidden md:flex justify-between items-center lg:gap-20 md:gap-12 xl:gap-28 text-gray-900 dark:text-gray-300 text-md px-4 font-semibold'>
+        <ul className='hidden md:flex justify-between items-center lg:gap-15 md:gap-8 xl:gap-20 text-gray-900 dark:text-gray-300 text-sm px-4 font-semibold'>
           <Link to='/'><li className='p-4 hover:bg-[#f2d2cf] dark:hover:text-black rounded-md transition-transform'>Home</li></Link>
           <Link to='/about'><li className='p-4 hover:bg-[#f2d2cf] dark:hover:text-black rounded-md transition-transform'>About</li></Link>
           <Link to='/consult'><li className='p-4 hover:bg-[#f2d2cf] dark:hover:text-black rounded-md transition-transform'>Consultation form</li></Link>
           <Link to='/blogs'><li className='p-4 hover:bg-[#f2d2cf] dark:hover:text-black rounded-md transition-transform'>Blogs</li></Link>
+          <Link to='/programs'><li className='p-4 hover:bg-[#f2d2cf] dark:hover:text-black rounded-md transition-transform'>Programs</li></Link>
           <Link to='/contact'><li className='p-4 hover:bg-[#f2d2cf] dark:hover:text-black rounded-md transition-transform'>Contact</li></Link>
           <Link to='/testimonials'><li className='p-4 hover:bg-[#f2d2cf] dark:hover:text-black rounded-md transition-transform'>Testimonials</li></Link>
         </ul>

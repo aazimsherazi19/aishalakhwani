@@ -31,6 +31,14 @@ import Terms from "./components/Terms"
 import TestimonialMain from "./components/TestimonialMain"
 import AddTestimonial from "./admin/pages/AddTestimonial"
 import ViewTestimonials from "./admin/pages/viewTestimonials"
+import Programs from "./components/Programs"
+import CompleteProgram from "./components/CompleteProgram"
+import AddPrograms from "./admin/pages/AddPrograms"
+import ViewPrograms from "./admin/pages/ViewPrograms"
+import UpdateProgram from "./admin/pages/UpdateProgram"
+
+
+
 function App() {
   const { isAuthenticated } = useAuth();
   return (
@@ -52,6 +60,8 @@ function App() {
     <Route path="/payment/:userId" element={<PayNow/>}/>
     <Route path="/terms" element={<Terms/>}/>
     <Route path="/testimonials" element={<TestimonialMain/>}/>
+    <Route path="/programs" element={<Programs/>}/>
+    <Route path="/program/:id" element={<CompleteProgram />} />
     //admin routes
     <Route path="/admin" element={isAuthenticated ? <AdminDashboard /> : <Navigate to="/login"/>} />
     <Route path="/addblogs" element={isAuthenticated ? <AddBlogs /> : <Navigate to="/login"/>} />
@@ -65,6 +75,10 @@ function App() {
     <Route path="/updatepackages/:id" element={isAuthenticated ? <UpdatePackages/> : <Navigate to="/login"/>} />
     <Route path="/addtestimonial" element={isAuthenticated ? <AddTestimonial /> : <Navigate to="/login"/>} />
     <Route path="/viewtestimonials" element={isAuthenticated ? <ViewTestimonials /> : <Navigate to="/login"/>} />
+    <Route path="/addprograms" element={isAuthenticated ? <AddPrograms /> : <Navigate to="/login"/>} />
+    <Route path="/viewprograms" element={isAuthenticated ? <ViewPrograms /> : <Navigate to="/login"/>} />
+    <Route path="/updateprogram/:id" element={isAuthenticated ? <UpdateProgram/> : <Navigate to="/login"/>} />
+
     {/* <Route path="/orders" element={isAuthenticated ? <Orders /> : <Navigate to="/login"/>} /> */}
     <Route path="/patients" element={isAuthenticated ? <CustomerDetails /> : <Navigate to="/login"/>} />
     <Route path="/updatecustomer/:id" element={isAuthenticated ? <UpdateCustomer/> : <Navigate to="/login"/>} />
